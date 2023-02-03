@@ -38,6 +38,9 @@ loadSprite('blue-brick', '3e5YRQd.png')
 loadSprite('blue-steel', 'gqVoI2b.png')
 loadSprite('blue-evil-shroom', 'XXwOSKf.png')
 loadSprite('blue-surprise', 'RMqCc1G.png')
+loadSprite('red-evil-shroom', 'GDmLMla.png')
+loadSprite('white-evil-shroom', '3r66Tq8.png')
+
 
 
 
@@ -68,6 +71,30 @@ scene("game", ({ level, score }) => {
       '£                        x x x x  x   -+£',
       '£               z   z  x x x x x  x   ()£',
       '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!',
+    ],
+    [
+      '                                      ',
+      '                                      ',
+      '                                      ',
+      '                                      ',
+      '                                      ',
+      '    ===%=    ===%=                      ',
+      '                                      ',
+      '                                               -+        ',
+      '            w  w     w   w                     ()        ',
+      '==============================    =    =   =======',
+    ], 
+    [
+      '£                                       ',
+      '£                                       ',
+      '£                                       ',
+      '£                                       ',
+      '£                                                     x ',
+      '£        @@@@@@              x x       x    x    x',
+      '£                          x x x       x',
+      '£                        x x x x  x                                      -+£',
+      '£               f   f  x x x x x  x                                      ()£',
+      '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                        !     !    !!!!',
     ]
   ]
 
@@ -90,6 +117,9 @@ scene("game", ({ level, score }) => {
     'z': [sprite('blue-evil-shroom'), solid(), scale(0.5), 'dangerous'],
     '@': [sprite('blue-surprise'), solid(), scale(0.5), 'coin-surprise'],
     'x': [sprite('blue-steel'), solid(), scale(0.5)],
+    'w': [sprite('red-evil-shroom'), solid(), scale(0.5), 'dangerous'],
+    'f': [sprite('white-evil-shroom'), solid(), scale(0.5), 'dangerous'],
+
 
   }
 
@@ -223,7 +253,7 @@ scene("game", ({ level, score }) => {
 })
 
 scene('lose', ({ score }) => {
-  add([text(score+"  tap Space to Restart", 22), origin('center'), pos(width()/2, height()/ 2)])
+  add([text("score:"+score+"  tap Space to Restart", 16), origin('center'), pos(width()/2, height()/ 2)])
   document.body.onkeyup = function(e) {
     if (e.key == " " ||
         e.code == "Space" ||      
